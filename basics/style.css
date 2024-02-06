@@ -1,0 +1,21 @@
+.container{
+    height:400px;
+    width: 400px;
+    background-color: pink;
+    display:flex;
+    flex-wrap: wrap;
+   
+  
+  }
+  
+  .btn{
+    height:100px;
+    width: 105px;
+    margin-left: 20px;
+    padding-top: 20px;
+    font-size:40px;
+    font-weight: 400;
+    color:blue;
+    background-color: lightgray;
+    border:1px solid black;
+  }
