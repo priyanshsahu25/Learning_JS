@@ -4,6 +4,7 @@ let announcement= document.createElement('h3');
 announcement.setAttribute('id','winner_anoncement');
 let body =document.querySelector('body');
 let reset_btn= document.querySelector('.reset');
+let draw_heading=document.createElement('h3')
 let turn0=true;
 const winpattern=[
     [0,1,2],
@@ -18,22 +19,10 @@ const winpattern=[
 
 
 
-const match_tied = () => {
-    let totalMoves = 0;
-    for (let box of boxes) {
-        if (box.innerText !== '') {
-            totalMoves++;
-        }
-    }
-   
-    if (totalMoves === 9) {
-        console.log('The game is drawn.');
-    }
-}
 
 
 
-
+let draw_check=false;
 
 
 boxes.forEach((box)=>{
@@ -50,7 +39,8 @@ box.addEventListener('click',()=>{
     }
     turn0=!turn0;
     box.disabled=true;
-    check_winner();
+    
+    draw_check =check_winner();
     match_tied();
 })
 });
@@ -78,6 +68,7 @@ const check_winner=()=>{
                 turn.remove();
                 disable_boxes();
                 reset_btn.style.marginTop='20px';
+                return true;
             }
             else if(pos1 =='X' && pos2 =='X' && pos3 =='X'){
                 announcement.innerText='Winner is X';
@@ -85,9 +76,11 @@ const check_winner=()=>{
                 turn.remove();
                 disable_boxes();
                 reset_btn.style.marginTop='20px';
+                return true;
             }
         }
     }
+ 
 }
 
 
@@ -97,6 +90,20 @@ for(let box of boxes){
     box.innerText='';
     box.disabled = false;
     turn.innerText='Turn of 0';
+    document.querySelector('div').insertAdjacentElement('afterend', turn);
     announcement.remove();
 }
 });
+
+const match_tied = () => {
+    let totalMoves = 0;
+    for (let box of boxes) {
+        if (box.innerText !== '') {
+            totalMoves++;
+        }
+    }
+   
+    if (totalMoves === 9 && !draw_check) {
+       turn.innerText='The game is drawn.'
+    }
+}
