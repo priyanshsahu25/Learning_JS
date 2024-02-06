@@ -4,18 +4,29 @@
     background-color: pink;
     display:flex;
     flex-wrap: wrap;
-   
-  
   }
   
   .btn{
     height:100px;
     width: 105px;
     margin-left: 20px;
-    padding-top: 20px;
+    margin-top: 15px !important;
     font-size:40px;
     font-weight: 400;
     color:blue;
     background-color: lightgray;
     border:1px solid black;
+  }
+  #winner_anoncement{
+    margin-left:150px;
+  
+  }
+#turn{
+  margin-left: 160px;
+}
+  .reset{
+    margin-top: 0px;
+    margin-left: 150px;
+    width: 100px;
+    height: 40px;
   }
